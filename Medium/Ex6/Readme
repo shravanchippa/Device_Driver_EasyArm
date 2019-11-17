@@ -1,0 +1,21 @@
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+
+misc_chr_drv_skel.ko will be generated
+
+after inserting driver we will get minor number
+All misc driver will use 10 as major number
+
+cat /proc/misc  ---to know minor number
+
+create a node
+
+cd /dev
+mknod misc_char_cdrv c 10 minor
+
+check application test_misc_cdev.c
+fd = open( "/dev/misc_char_cdrv", O_RDWR );
+compile application & test
+
+

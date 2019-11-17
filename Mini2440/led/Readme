@@ -1,0 +1,17 @@
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+mini2440_leds.ko will be generated
+
+insert drriver
+it is misc driver,so it will use 10 as major number..
+
+to know minor number
+cat /proc/misc
+
+goto cd /dev
+mknod leds c 10 minor
+chmod 666 leds
+
+run test application led.c with argumens as led number on|off
+

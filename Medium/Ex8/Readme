@@ -1,0 +1,8 @@
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+
+simple_work_queue.ko will be generated
+
+insert driver
+

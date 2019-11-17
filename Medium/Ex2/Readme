@@ -1,0 +1,20 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+chr_drv_udev.ko  will be geneated...we need to get this files to board via tftp..
+
+chr_drv_udev
+
+after inserting driver
+
+#define CHAR_DEV_NAME "sample_cdrv"
+
+it automatically create a node in /dev/sample_cdrv
+check ls -l /dev/sample_cdrv
+
+before running test_chrdev.c check  fd=open("/dev/sample_cdrv",O_RDWR); same or not
+
+#rmmod chr_drv_udev
+
+

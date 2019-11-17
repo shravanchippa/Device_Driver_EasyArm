@@ -1,0 +1,9 @@
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+
+
+simple_tasklet.ko will be generated
+
+insert driver
+

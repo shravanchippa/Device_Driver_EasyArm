@@ -1,0 +1,12 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+simple_intr.ko will be generated
+
+insert driver module
+ 
+interrupt details:
+{IRQ_EINT8 , S3C2410_GPG0 ,  S3C2410_GPG0_EINT8  , 0, "KEY0"}
+
+press key0 to generat interrupt....

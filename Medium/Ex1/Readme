@@ -1,0 +1,33 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+chr_drv_skel.ko & chr_drv_dynamic.ko will be geneated...we need to get these files to board via tftp..
+
+chr_drv_skel
+
+#define MAJORNO 300
+#define MINORNO  0
+
+after inserting driver
+
+#cd /dev
+#mknod sample_cdrv c 300 0
+#chmod 666 sample_cdrv
+
+before running chr_drv_skel_app.c check  fd=open("/dev/sample_cdrv",O_RDWR); same or not
+
+#rmmod chr_drv_skel
+
+
+chr_drv_dynamic
+
+printk (KERN_INFO "Major number = %d, Minor number = %d\n", MAJOR (mydev),MINOR (mydev));
+it will display major & minor number during insmod
+
+
+#cd /dev
+#mknod sample_cdrv c major minor
+
+before running chr_drv_skel_app.c check  fd=open("/dev/sample_cdrv",O_RDWR); 
+

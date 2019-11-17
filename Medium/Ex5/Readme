@@ -1,0 +1,26 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+procfs1.ko procfs2.ko  will be geneated...we need to get this files to board via tftp..
+
+inserting procfs1.ko
+
+testing cat /proc/helloworld
+Welcome to HelloWorld!
+
+if you want to change entry name in /proc ...modified here
+#define procfs_name "helloworld"
+
+
+inserting procfs2.ko
+
+#define procfs_name "buffer1k"
+
+testing cat /proc/buffer1k
+welcome to HelloWorld!
+
+echo "Hi linux world" > /proc/buffrt1k
+we can see kernel mesage
+printk(KERN_INFO "%s\n", procfs_buffer);
+Hi linux world

@@ -1,0 +1,23 @@
+
+1.regs-adc.h
+linux-2.6.29/arch/arm/plat-s3c/include/plat/
+
+2.regs-gpio.h
+linux-2.6.29/arch/arm/mach-s3c2410/include/mach
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+mini2440_adc.ko will be generated...
+
+it is misc driver...major no 10
+
+insert driver
+cat /proc/misc to know minor number
+
+cd /dev
+mknod  adc c 10 minor
+chmod 666 adc
+
+run adc-test.c application of compliation of application
+

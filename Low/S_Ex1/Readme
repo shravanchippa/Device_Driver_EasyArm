@@ -1,0 +1,17 @@
+
+compilation:
+make ARCH=arm CROSS_COMPILE=arm-linux-
+
+testing:
+to get simplemodule.ko to board via tftp
+
+tftp -r simple_module.ko -g 192.168.1.2[tftp server]
+
+#insmod simple_module.ko
+Hello World - simple module is loaded  
+
+#lsmod
+simple_module 968 0 - Live 0xbf003000  
+
+#rmmod simple_module
+simple module is unloaded  

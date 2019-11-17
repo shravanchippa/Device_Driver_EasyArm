@@ -1,0 +1,20 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+chr_drv_reentrant.ko chr_drv_mutex.ko chr_drv_spinlock.ko will be geneated...we need to get this files to board via tftp..
+
+chr_drv_spinlock.ko
+
+after inserting driver
+
+#define CHAR_DEV_NAME "sample_cdrv"
+
+it automatically create a node in /dev/sample_cdrv
+check ls -l /dev/sample_cdrv
+
+run excutables of reader.c & writer.c
+
+#rmmod chr_drv_udev
+
+

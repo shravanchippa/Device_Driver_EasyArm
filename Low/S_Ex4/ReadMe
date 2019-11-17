@@ -1,0 +1,32 @@
+
+compilation:
+make ARCH=arm CROSS_COMPILE=arm-linux-
+
+testing:
+to get module_expsym.ko & module_impsym.ko to board via tftp
+
+tftp -r module_expsym.ko -g 192.168.1.2[tftp server]
+tftp -r module_impsym.ko -g 192.168.1.2[tftp server]
+
+#insmod module_expsym.ko
+Export Symbol Module Initialized                       
+
+#lsmod                                                     
+module_expsym 1385 0 - Live 0xbf00f000                             
+
+#insmod module_impsym.ko
+Import Symbol Module Initialized                                                
+Hello World 
+
+#lsmod
+module_impsym 1080 0 - Live 0xbf012000                                          
+module_expsym 1385 1 module_impsym, Live 0xbf00f000                                      
+
+# rmmod module_impsym                                       
+Import Symbol Module is removed                                                 
+                                      
+# rmmod module_expsym                                       
+Export Symbol Module is removed                                                 
+
+
+

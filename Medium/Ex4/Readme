@@ -1,0 +1,35 @@
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+chr_drv_ioctl.ko will be geberated...you have get this file to board
+
+
+
+insert driver...
+
+while testing
+
+#define sample_ioctl_FILL_ZERO		_IO( sample_ioctl_MAGIC, 1 )
+
+/* sample_ioctl_FILL_ZERO: to fill our character array with a character
+   As we can see there is not data transfer. The moment
+   our driver gets this command, it executes the following
+   for loop
+   	for(i=0; i<MAX_LENGTH; i++) char_device_buf[i] = c;
+   where c is the character. This involves something to be 
+   transfered from user to kernel
+*/
+#define sample_ioctl_FILL_CHAR		_IOW( sample_ioctl_MAGIC, 2, char )
+
+/* sample_ioctl_SET_SIZE: to set the size of the character array */
+
+#define sample_ioctl_SET_SIZE		_IOW( sample_ioctl_MAGIC, 3, uint )
+
+/* sample_ioctl_GET_SIZE: to get the size of the character array */
+#define sample_ioctl_GET_SIZE		_IOR( sample_ioctl_MAGIC, 4, uint )
+
+#define sample_ioctl_MAX_CMDS		4
+
+
+please use ioctl commands which are defined by driver
+

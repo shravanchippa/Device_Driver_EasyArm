@@ -1,0 +1,16 @@
+
+compilation:
+make ARCHa=arm CROSS_COMPILE=arm-linux-
+
+mi2c.ko will be generated
+
+it automaticaly generate node in /dev directory with mi2c
+
+insert driver...
+
+write test application
+open("/dev/mi2c",O_RDWR);
+
+write....take a buffer...buffer[0]=address of eeprom you want to write operation... buffer[1]...........on wards data...max size is 128.....count specifies only data...
+read.....take a buffer...buffer[0]=address of eeprom you want to read operation... count specifies how many bytes to read.return buffer[0]...........on wards data...max size is 128
+

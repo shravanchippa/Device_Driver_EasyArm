@@ -1,0 +1,29 @@
+
+compilation:
+make ARCH=arm CROSS_COMPILE=arm-linux-
+
+testing:
+to get simple_module_export.ko & usage.ko to board via tftp
+
+tftp -r simple_module_export.ko -g 192.168.1.2[tftp server]
+tftp -r usage.ko -g 192.168.1.2[tftp server]
+
+#insmod simple_module_export.ko
+simple module is loaded 
+                                                        
+# lsmod                                                     
+simple_module_export 1132 0 - Live 0xbf006000 
+
+#insmod usage.ko  
+usage module loaded                                                             
+sum=5  
+                                                                         
+# lsmod                                                     
+usage 1048 0 - Live 0xbf009000                                                  
+simple_module_export 1132 1 usage, Live 0xbf006000 
+
+#rmmod usage
+usage module unloaded
+
+#rmmod simple_module_export
+simple module is unloaded 
